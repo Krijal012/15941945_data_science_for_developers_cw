@@ -3,16 +3,13 @@
 .RData
 .Ruserdata
 
-# Raw data (too large / shouldn't be on GitHub)
-01 Clean/raw/
+# Raw data - too large for GitHub
+Raw Data/
 *.csv
 
-# Keep processed/summary CSVs though
-!01 Clean/processed/*.csv
+# But allow cleaned data through
+!Clean Data/*.csv
 
-# Trash folder
 99 Trash/
-
-# OS files
 .DS_Store
 Thumbs.db
