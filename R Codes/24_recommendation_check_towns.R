@@ -17,6 +17,7 @@ crime <- read_csv("Clean Data/crime_clean.csv")
 # ============================================
 town_price <- house_prices %>%
   filter(year == 2025) %>%
+  mutate(town = trimws(toupper(town))) %>%
   group_by(town, county) %>%
   summarise(avg_price = mean(price, na.rm = TRUE), .groups = "drop")
 
@@ -28,6 +29,7 @@ nrow(town_price)
 # ============================================
 town_school <- education %>%
   filter(year == "2024-2025") %>%
+  mutate(town = trimws(toupper(town))) %>%
   group_by(town, county) %>%
   summarise(avg_att8 = mean(att8_score, na.rm = TRUE), .groups = "drop")
 
@@ -122,3 +124,6 @@ print(top10_towns)
 write_csv(top10_towns, "Clean Data/top10_towns_recommendation.csv")
 
 list.files("Clean Data")
+
+head(unique(town_price$town), 10)
+head(unique(town_school$town), 10)
