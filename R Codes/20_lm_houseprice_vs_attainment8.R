@@ -16,7 +16,7 @@ print(avg_price_year)
 
 # Convert academic year (e.g. "2024-2025") to a single matching year
 education <- education %>%
-  mutate(match_year = as.numeric(sub(".*-", "", year)))   # takes the second year from "2024-2025"
+  mutate(match_year = as.numeric(sub(".*-", "", year)))
 
 head(education)
 
